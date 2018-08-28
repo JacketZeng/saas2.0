@@ -1,0 +1,52 @@
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('../../../assets/images/l_b.jpg') center top;
+}
+
+.login-form {
+    width: 380px;
+    height: 430px;
+    margin: 196px auto 0;
+    font-size: 14px;
+}
+
+.title {
+    margin-bottom: 60px;
+    color: #3291ff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-group {
+    margin-bottom: 24px;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    padding: 1pc 20px;
+}
+
+.btn-login {
+    display: block;
+    width: 100%;
+    height: 56px;
+    border: none;
+    background-color: #3291ff;
+    color: #fff;
+    font-size: 18px;
+    line-height: 56px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.verrify-img{
+    height:38px;
+    margin:9px 20px;
+}
