@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   params: LoginParams;
+
+  loading: boolean;
 
   ngOnInit() {
     this.params = new LoginParams('1', '2', '3');
@@ -23,27 +24,18 @@ export class LoginComponent implements OnInit {
     this.params.verrifyImgUrl = this.authService.getVerrifyImgUrl();
   }
 
-  message: string;
-
   constructor(public authService: AuthService, public router: Router) {
-    this.setMessage();
-  }
-
-  setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
   }
 
   login() {
     if (this.authService.checkIn(this.params)) {
+      this.loading = true;
       this.authService.login().subscribe(() => {
-        this.setMessage();
         if (this.authService.isLoggedIn) {
-          // Get the redirect URL from our auth service
-          // If no redirect has been set, use the default
-          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/home';
-
+          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'home';
           // Redirect the user
           this.router.navigate([redirect]);
+          this.loading = false;
         }
       });
     }
@@ -51,6 +43,5 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.setMessage();
   }
 }

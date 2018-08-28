@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
-
+import {Router} from '@angular/router';
 import { LoginParams } from '../models/login-params';
 import { Urls } from '../configs/urls';
 import { UtilService } from '../services/util.service';
@@ -11,7 +11,7 @@ import { HttpService } from '../services/http.service';
 @Injectable()
 export class AuthService {
 
-  constructor(private utilService: UtilService, private http: HttpService) { }
+  constructor(private utilService: UtilService, private http: HttpService,private router : Router) { }
 
   isLoggedIn = false;
 
@@ -20,13 +20,14 @@ export class AuthService {
 
   login(): Observable<boolean> {
     return of(true).pipe(
-      delay(500),
+      delay(1000),
       tap(val => this.isLoggedIn = true)
     );
   }
 
   logout(): void {
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 
   //登录参数检测
