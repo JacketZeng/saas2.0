@@ -8,7 +8,13 @@ import { HomeComponent } from './home.component';
 const homeRoutes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin',
+    loadChildren: 'app/pages/home/admin/admin.module#AdminModule',
+    canLoad: [AuthGuard]
   }
 ];
 
@@ -22,3 +28,4 @@ const homeRoutes: Routes = [
   providers: [AuthGuard, AuthService]
 })
 export class HomeRoutingModule { }
+

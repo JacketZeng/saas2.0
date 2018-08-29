@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-import { AdminComponent } from './admin.component';
-import { AuthGuard } from '../../../services/auth-guard.service';
+import { Routes, RouterModule } from '@angular/router';
+import { UserComponent } from './user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from '../../services/auth-guard.service';
 import { DownloadComponent } from './download/download.component';
 import { MonthbillComponent } from './monthbill/monthbill.component';
-const adminRoutes: Routes = [
+import { AuthService } from '../../services/auth.service';
+const userRoutes: Routes = [
   {
     path: '',
-    component: AdminComponent,
+    component: UserComponent,
     canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        canActivateChild: [AuthGuard],
+        // canActivateChild: [AuthGuard],
         children: [
           { path: 'dashboard', component: DashboardComponent },
           { path: 'download', component: DownloadComponent },
@@ -26,13 +26,14 @@ const adminRoutes: Routes = [
   }
 
 ];
-
 @NgModule({
   imports: [
-    RouterModule.forChild(adminRoutes)
+    RouterModule.forChild(userRoutes)
   ],
   exports: [
     RouterModule
   ],
+  declarations: [],
+  providers: [AuthGuard, AuthService]
 })
-export class AdminRoutingModule { }
+export class UserRoutingModule { }

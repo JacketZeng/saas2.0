@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './pages/home/home.module';
 import { LoginModule } from './pages/login/login.module';
 import { AppRoutingModule } from './app-routing.module';
-
-
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
-    // BrowserModule,
-    // FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
-    HomeModule,
     LoginModule,
     AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

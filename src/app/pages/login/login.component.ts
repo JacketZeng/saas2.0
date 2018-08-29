@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { LoginParams } from '../../models/login-params';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -32,9 +32,18 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this.authService.login().subscribe(() => {
         if (this.authService.isLoggedIn) {
-          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'home';
+          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'user';
+          // Set our navigation extras object
+          // that passes on our global query params and fragment
+          let navigationExtras: NavigationExtras = {
+            queryParamsHandling: 'preserve',
+            preserveFragment: true
+          };
+
           // Redirect the user
+          // this.router.navigate([redirect], navigationExtras);
           this.router.navigate([redirect]);
+
           this.loading = false;
         }
       });

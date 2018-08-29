@@ -31,7 +31,7 @@
       </li>
     </ul>
     <div class="btn-group mr-5" ngbDropdown role="group" placement="bottom-right" aria-label="Button group with nested dropdown">
-      <img src="/assets/images/mine.png" height="30" ngbDropdownToggle/>
+      <button class="btn btn-primary" id="dropdownSession" ngbDropdownToggle>{{ userName | async }}</button>
       <div class="dropdown-menu" ngbDropdownMenu>
         <button class="dropdown-item" (click)="logout()">logout</button>
       </div>

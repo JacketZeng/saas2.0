@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-import {  StatisticComponent } from './statistic.component';
-
-import { HomeComponent } from '../home.component';
+import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../../services/auth-guard.service';
+import { AuthService } from '../../services/auth.service';
+import { SummaryComponent } from './summary/summary.component';
 import { RateComponent } from './rate/rate.component';
 import { AmountComponent } from './amount/amount.component';
-import { SummaryComponent } from './summary/summary.component';
+import { StatisticComponent } from './statistic.component';
 const statisticRoutes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: '',
+    component: StatisticComponent,
+    canActivate: [AuthGuard],
     children: [
       {
-        path: 'statistic',
-        component : StatisticComponent,
+        path: '',
+        // canActivateChild: [AuthGuard],
         children: [
           { path: 'summary', component: SummaryComponent },
           { path: 'rate', component: RateComponent },
@@ -26,7 +26,6 @@ const statisticRoutes: Routes = [
   }
 
 ];
-
 @NgModule({
   imports: [
     RouterModule.forChild(statisticRoutes)
@@ -34,5 +33,7 @@ const statisticRoutes: Routes = [
   exports: [
     RouterModule
   ],
+  declarations: [],
+  providers: [AuthGuard, AuthService]
 })
 export class StatisticRoutingModule { }
