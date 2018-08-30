@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   server : {
-    host : '10.187.134.103',
-    port : '80'
+    host : '127.0.0.1',
+    port : '8888'
   }
 };
 

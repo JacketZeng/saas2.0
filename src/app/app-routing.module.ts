@@ -16,8 +16,13 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'market',
+    loadChildren: './pages/market/market.module#MarketModule',
+    canLoad: [AuthGuard]
+  },
+  {
     path: '',
-    redirectTo: 'statistic',
+    redirectTo: 'market',
     pathMatch: 'full'
   }, {
     path: '**',
@@ -26,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes/*, { enableTracing: true, useHash: true }*/)],
+  imports: [RouterModule.forRoot(routes/*, { enableTracing: true }*/)],
   exports: [RouterModule],
   providers: [AuthGuard, AuthService]
 })

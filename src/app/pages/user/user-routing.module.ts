@@ -5,7 +5,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from '../../services/auth-guard.service';
 import { DownloadComponent } from './download/download.component';
 import { MonthbillComponent } from './monthbill/monthbill.component';
-import { AuthService } from '../../services/auth.service';
 const userRoutes: Routes = [
   {
     path: '',
@@ -14,7 +13,7 @@ const userRoutes: Routes = [
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           { path: 'dashboard', component: DashboardComponent },
           { path: 'download', component: DownloadComponent },
@@ -34,6 +33,5 @@ const userRoutes: Routes = [
     RouterModule
   ],
   declarations: [],
-  providers: [AuthGuard, AuthService]
 })
 export class UserRoutingModule { }

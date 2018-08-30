@@ -7,7 +7,6 @@ import { LoginModule } from './pages/login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  constructor() {
+    console.log('app init...');
   }
 }

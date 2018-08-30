@@ -11,7 +11,7 @@ import { HttpService } from '../services/http.service';
 @Injectable()
 export class AuthService {
 
-  constructor(private utilService: UtilService, private http: HttpService,private router : Router) { }
+  constructor(private utilService: UtilService, private http: HttpService,private router : Router) {}
 
   isLoggedIn = false;
 

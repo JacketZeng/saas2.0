@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../services/auth-guard.service';
-import { AuthService } from '../../services/auth.service';
 import { SummaryComponent } from './summary/summary.component';
 import { RateComponent } from './rate/rate.component';
 import { AmountComponent } from './amount/amount.component';
@@ -14,7 +13,7 @@ const statisticRoutes: Routes = [
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           { path: 'summary', component: SummaryComponent },
           { path: 'rate', component: RateComponent },
@@ -34,6 +33,5 @@ const statisticRoutes: Routes = [
     RouterModule
   ],
   declarations: [],
-  providers: [AuthGuard, AuthService]
 })
 export class StatisticRoutingModule { }

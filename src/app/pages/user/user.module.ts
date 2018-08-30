@@ -7,17 +7,19 @@ import { MonthbillComponent } from './monthbill/monthbill.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
+import { HeaderModule } from '../common-component/header/header.module';
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    UserRoutingModule
+    UserRoutingModule,
+    HeaderModule
   ],
   declarations: [
     UserComponent,
     DashboardComponent,
     DownloadComponent,
-    MonthbillComponent
+    MonthbillComponent,
   ]
 })
 export class UserModule { }

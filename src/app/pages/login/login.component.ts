@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.params.verrifyImgUrl = this.authService.getVerrifyImgUrl();
   }
 
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   login() {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this.authService.login().subscribe(() => {
         if (this.authService.isLoggedIn) {
-          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'user';
+          let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'market';
           // Set our navigation extras object
           // that passes on our global query params and fragment
           let navigationExtras: NavigationExtras = {
@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
           };
 
           // Redirect the user
-          // this.router.navigate([redirect], navigationExtras);
-          this.router.navigate([redirect]);
+          this.router.navigate([redirect], navigationExtras);
+          // this.router.navigate([redirect]);
 
           this.loading = false;
         }

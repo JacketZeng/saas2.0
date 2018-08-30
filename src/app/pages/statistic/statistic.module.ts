@@ -6,20 +6,20 @@ import { RateComponent } from './rate/rate.component';
 import { SummaryComponent } from './summary/summary.component';
 import { StatisticRoutingModule } from './statistic-routing.module';
 import { StatisticComponent } from './statistic.component';
-import { HeaderComponent } from '../header/header.component';
 
+import { HeaderModule } from '../common-component/header/header.module';
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
-    StatisticRoutingModule
+    HeaderModule,
+    StatisticRoutingModule,
   ],
   declarations: [
     StatisticComponent,
     AmountComponent,
     RateComponent,
-    SummaryComponent,
-    HeaderComponent
+    SummaryComponent
   ]
 })
 export class StatisticModule { }

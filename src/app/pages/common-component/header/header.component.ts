@@ -1,13 +1,14 @@
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  templateUrl: './home.component.html'
+  selector: 'saas-header',
+  templateUrl: './header.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   userName: Observable<string>;
   token: Observable<string>;
 
@@ -29,3 +30,4 @@ export class HomeComponent implements OnInit {
       .pipe(map(fragment => fragment || 'None'));
   }
 }
+

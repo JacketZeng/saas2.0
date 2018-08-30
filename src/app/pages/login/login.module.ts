@@ -10,7 +10,7 @@ import { LoginComponent } from './login.component';
     FormsModule,
     LoginRoutingModule
   ],
-  declarations: [
+  declarations: [ 
     LoginComponent,
   ]
 })

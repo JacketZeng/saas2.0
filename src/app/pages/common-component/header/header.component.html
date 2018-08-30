@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <a class="navbar-brand mr-3" routerLink="">
+        <img src="/assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
+      </a>
+      <li class="nav-item dropdown">
+        <div ngbDropdown>
+          <button class="btn btn-primary" routerLinkActive="active" id="dropdownUser" ngbDropdownToggle>营销</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownUser">
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/market">客户</button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <div ngbDropdown>
+          <button class="btn btn-primary" routerLinkActive="active" id="dropdownUser" ngbDropdownToggle>报表</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownUser">
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/user/dashboard">仪表盘</button>
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/user/download">下载</button>
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/user/monthbill">月账单</button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <div ngbDropdown>
+          <button class="btn btn-primary" id="dropdownStatistic" ngbDropdownToggle>统计</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownStatistic">
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/statistic/summary">概览</button>
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/statistic/rate">成功率</button>
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/statistic/amount">金额</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="btn-group mr-5" ngbDropdown role="group" placement="bottom-right" aria-label="Button group with nested dropdown">
+      <button class="btn btn-primary" id="dropdownSession" ngbDropdownToggle>{{ userName | async }}</button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button class="dropdown-item" routerLink="/mine">个人</button>
+        <button class="dropdown-item" routerLink="/changepsw">修改密码</button>
+        <button class="dropdown-item" (click)="logout()">退出</button>
+      </div>
+    </div>
+
+  </div>
+</nav>
