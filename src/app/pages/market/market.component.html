@@ -1,2 +1,37 @@
 <saas-header></saas-header>
-market works!
+
+<h1>属性型指令</h1>
+<h4>Pick a highlight color</h4>
+<div>
+    <label>
+        <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    </label>
+    <label>
+        <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    </label>
+    <label>
+        <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </label>
+</div>
+<p [appHighlight]="color">Highlight me!</p>
+<p [appHighlight]="color" defaultColor="violet">
+    Highlight me too!
+</p>
+
+<hr>
+
+<h1>结构型指令</h1>
+<p>
+    The condition is currently
+    <span [ngClass]="{ 'a': !condition, 'b': condition, 'unless': true }">{{condition}}</span>.
+    <button (click)="condition = !condition" [ngClass]="{ 'a': condition, 'b': !condition }">
+        Toggle condition to {{condition ? 'false' : 'true'}}
+    </button>
+</p>
+<p *appUnless="condition" class="unless a">
+    (A) This paragraph is displayed because the condition is false.
+</p>
+
+<p *appUnless="!condition" class="unless b">
+    (B) Although the condition is true, this paragraph is displayed because appUnless is set to false.
+</p>
