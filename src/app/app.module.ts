@@ -7,17 +7,19 @@ import { LoginModule } from './pages/login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import G2Module from './g2/g2.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
     LoginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    G2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
