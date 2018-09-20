@@ -1,0 +1,20 @@
+<p>
+    g2 works!
+</p>
+<!-- <div>
+    <v-chart (click)="click(ev,chart)" [forceFit]="forceFit" [height]="height" [data]="data" [scale]="scale">
+        <v-tooltip></v-tooltip>
+        <v-axis></v-axis>
+        <v-bar position="year*sales"></v-bar>
+    </v-chart>
+</div> -->
+
+<div>
+    <v-chart [forceFit]="forceFit" [height]="height" [data]="data" [scale]="scale">
+        <v-tooltip></v-tooltip>
+        <v-axis></v-axis>
+        <v-legend></v-legend>
+        <v-line position="month*temperature" color="city"></v-line>
+        <v-point position="month*temperature" color="city" [size]="4" [style]="style" shape="circle"></v-point>
+    </v-chart>
+</div>
